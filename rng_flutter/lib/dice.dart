@@ -17,20 +17,9 @@ class DiceRoute extends StatelessWidget {
         // add table of dice buttons here
         Expanded(
           child: GridButton(
-            onPressed: (var val) {
-              Random random = Random();
-              var rnd = random.nextInt(val)+1;
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(rnd.toString()),
-                  duration: const Duration(milliseconds: 400),
-                ),
-              );
+            onPressed: (var value) {
+              rollDice(context, value);
             },
-
-            // onPressed: (var value) {
-            //   // rollDice(value);
-            // },
             items: const [
               [
                 GridButtonItem(title: "D2", value: 2),
@@ -60,4 +49,15 @@ class DiceRoute extends StatelessWidget {
       ]),
     );
   }
+}
+
+void rollDice(BuildContext context, var maxValue) {
+  Random random = Random();
+  var rnd = random.nextInt(maxValue) + 1;
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(rnd.toString()),
+      duration: const Duration(milliseconds: 400),
+    ),
+  );
 }
