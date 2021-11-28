@@ -42,25 +42,24 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               child: const Text("Roll Dice"),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => const DiceRoute()
-                ));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const DiceRoute()));
               },
             ),
             ElevatedButton(
               child: const Text("Choose from List"),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => const ListRoute()
-                ));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ListRoute()));
               },
             ),
             ElevatedButton(
               child: const Text("Password Generator"),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => const PasswordRoute()
-                ));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PasswordRoute()));
               },
             ),
           ],
