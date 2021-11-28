@@ -3,9 +3,23 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_grid_button/flutter_grid_button.dart';
 
-class DiceRoute extends StatelessWidget {
+var lastRolled = 0;
+
+class DiceRoute extends StatefulWidget {
   const DiceRoute({Key? key}) : super(key: key);
-  static const textStyle = TextStyle(fontSize: 26);
+
+  @override
+  DiceState createState() => DiceState();
+}
+
+class DiceState extends State<DiceRoute> {
+  void rollDice(BuildContext context, var maxValue) {
+    Random random = Random();
+    var rnd = random.nextInt(maxValue) + 1;
+    setState(() {
+      lastRolled = rnd;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +28,16 @@ class DiceRoute extends StatelessWidget {
         title: const Text("Dice Roller"),
       ),
       body: Column(children: [
-        // add table of dice buttons here
+        Row(
+          children: const [
+            Text("Last rolled number:"),
+          ],
+        ),
+        Row(
+          children: [
+            Text(lastRolled.toString()),
+          ],
+        ),
         Expanded(
           child: GridButton(
             onPressed: (var value) {
@@ -37,7 +60,6 @@ class DiceRoute extends StatelessWidget {
             ],
           ),
         ),
-
         Row(children: [
           ElevatedButton(
             onPressed: () {
@@ -49,15 +71,4 @@ class DiceRoute extends StatelessWidget {
       ]),
     );
   }
-}
-
-void rollDice(BuildContext context, var maxValue) {
-  Random random = Random();
-  var rnd = random.nextInt(maxValue) + 1;
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(rnd.toString()),
-      duration: const Duration(milliseconds: 400),
-    ),
-  );
 }
