@@ -32,20 +32,23 @@ class DiceState extends State<DiceRoute> {
       body: Column(children: [
         const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
         Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            Text("Last rolled number:",
-            style: TextStyle(fontSize: 20),
+            Text(
+              "Last rolled number:",
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
         Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(lastRolled.toString(),
+            Text(
+              lastRolled.toString(),
               style: const TextStyle(fontSize: 60),
             ),
-            Text("/"+lastMax.toString(),
+            Text(
+              "/" + lastMax.toString(),
               style: const TextStyle(fontSize: 20),
             ),
           ],
@@ -77,12 +80,12 @@ class DiceState extends State<DiceRoute> {
             ],
           ),
         ),
-        Row(children: [
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text('Go back!'),
+            child: const Text('Return to Home Screen'),
           ),
         ]),
       ]),
