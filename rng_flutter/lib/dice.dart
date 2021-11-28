@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_grid_button/flutter_grid_button.dart';
 
 var lastRolled = 0;
+var lastMax = 0;
 
 class DiceRoute extends StatefulWidget {
   const DiceRoute({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class DiceState extends State<DiceRoute> {
     var rnd = random.nextInt(maxValue) + 1;
     setState(() {
       lastRolled = rnd;
+      lastMax = maxValue;
     });
   }
 
@@ -28,16 +30,27 @@ class DiceState extends State<DiceRoute> {
         title: const Text("Dice Roller"),
       ),
       body: Column(children: [
+        const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
         Row(
+            mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            Text("Last rolled number:"),
+            Text("Last rolled number:",
+            style: TextStyle(fontSize: 20),
+            ),
           ],
         ),
         Row(
+            mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(lastRolled.toString()),
+            Text(lastRolled.toString(),
+              style: const TextStyle(fontSize: 60),
+            ),
+            Text("/"+lastMax.toString(),
+              style: const TextStyle(fontSize: 20),
+            ),
           ],
         ),
+        const Padding(padding: EdgeInsets.fromLTRB(0, 5, 0, 0)),
         Expanded(
           child: GridButton(
             onPressed: (var value) {
@@ -56,6 +69,10 @@ class DiceState extends State<DiceRoute> {
               ],
               [
                 GridButtonItem(title: "D20", value: 20),
+              ],
+              [
+                GridButtonItem(title: "D100", value: 100),
+                GridButtonItem(title: "D1000", value: 1000),
               ],
             ],
           ),
