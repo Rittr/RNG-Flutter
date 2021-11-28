@@ -95,21 +95,132 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            TextButton(
+              child: const Text("Roll Dice"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => const DiceRoute()
+                ));
+              },
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            TextButton(
+              child: const Text("Choose from List"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const ListRoute()
+                ));
+              },
             ),
+            TextButton(
+              child: const Text("Password Generator"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const PasswordRoute()
+                ));
+              },
+            ),
+            // const Text(
+            //   'You have pushed the button this many times:',
+            // ),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headline4,
+            // ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+// class FirstRoute extends StatelessWidget {
+//   const FirstRoute({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('First Route'),
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           child: const Text('Open route'),
+//           onPressed: () {
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => const DiceRoute()),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class DiceRoute extends StatelessWidget {
+  const DiceRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Dice Roller"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+class ListRoute extends StatelessWidget {
+  const ListRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("List Item Selector"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+class PasswordRoute extends StatelessWidget {
+  const PasswordRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Password Generator"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
     );
   }
 }
