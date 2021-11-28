@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextButton(
+            ElevatedButton(
               child: const Text("Roll Dice"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
-            TextButton(
+            ElevatedButton(
               child: const Text("Choose from List"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
-            TextButton(
+            ElevatedButton(
               child: const Text("Password Generator"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
