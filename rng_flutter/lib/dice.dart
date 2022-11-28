@@ -45,7 +45,7 @@ class DiceState extends State<DiceRoute> {
           children: [
             Text(
               lastRolled.toString(),
-              style: const TextStyle(fontSize: 60),
+              style: const TextStyle(fontSize: 40),
             ),
             Text(
               "/" + lastMax.toString(),
